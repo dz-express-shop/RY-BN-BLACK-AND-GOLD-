@@ -2,26 +2,26 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ray-Ban Exclusive Offer - 50% OFF</title>
 
     <!-- ======================================================= -->
-    <!-- ⚙️ منطقة الإعدادات (بدل كل معلوماتك هنا باش ماتحوسش) ⚙️ -->
+    <!-- ⚙️ منطقة الإعدادات (مبرمجة وجاهزة للعمل الفوري) ⚙️ -->
     <!-- ======================================================= -->
     <script>
         const SETTINGS = {
             // 1. بيكسل الإعلانات (Pixels)
-            META_PIXEL_ID: '880279101448547',       // 👈 حط الـ ID تاع فيسبوك بيكسل هنا
-            TIKTOK_PIXEL_ID: 'D691NORC77U6HVGGO320',   // 👈 حط الـ ID تاع تيك توك بيكسل هنا
+            META_PIXEL_ID: '880279101448547',       // 👈 فيسبوك بيكسل مدمج
+            TIKTOK_PIXEL_ID: 'D691NORC77U6HVGGO320',   // 👈 تيك توك بيكسل مدمج
             
             // 2. استقبال الطلبات (Orders & Contact)
-            GOOGLE_SHEET_URL: 'https://script.google.com/macros/library/d/1gTBnsnq5PEP9N-NOLg7Ftl9yYFJ9mo_hxrlvddVcIFOkX6AtH5NNj4tV/6', // 👈 حط رابط جوجل شيت (App Script) هنا
-            WHATSAPP_NUMBER: '213791059501',           // 👈 حط رقم الواتساب هنا (مع رمز الدولة، بدون علامة +)
+            GOOGLE_SHEET_URL: 'https://script.google.com/macros/s/AKfycbyCEVqfSE-blAmXpQk73j0eb-7N1iv8HzrTkMtyC8reQw7fH4J3uC66V6esWq-5RT0/exec', // 👈 تطبيق الويب الصحيح والمجرب لاستلام البيانات
+            WHATSAPP_NUMBER: '213791059501',           // 👈 رقم خدمة العملاء للواتساب
             
             // 3. صور المنتجات (Images)
-            PIC_1_MAIN: '2 SUNGLASSESS.jpeg',          // 👈 الصورة الرئيسية الكبيرة (PIC 1)
-            PIC_2_MEN: 'MEN SUNGLASSES.jpeg',          // 👈 صورة النظارات السوداء للرجال (PIC 2)
-            PIC_3_WOMEN: 'WOMEN SUNGLASSES.jpeg'       // 👈 صورة النظارات الذهبية للنساء (PIC 3)
+            PIC_1_MAIN: '2 SUNGLASSESS.jpeg',          
+            PIC_2_MEN: 'MEN SUNGLASSES.jpeg',          
+            PIC_3_WOMEN: 'WOMEN SUNGLASSES.jpeg'       
         };
     </script>
     <!-- ======================================================= -->
@@ -74,23 +74,59 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+        @keyframes alert-shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }
+
+        /* WOW Glow Effects for Upsell Box */
+        @keyframes border-glow-gold {
+            0%, 100% { border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+            50% { border-color: #D4AF37; box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+        }
+        @keyframes border-glow-green {
+            0%, 100% { border-color: rgba(34, 197, 94, 0.4); box-shadow: 0 0 5px rgba(34, 197, 94, 0.2); }
+            50% { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.6); }
+        }
+        @keyframes gift-bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
 
         .btn-pulse { animation: pulse-gold 2s infinite; }
         .btn-pulse-whatsapp { animation: pulse-green 2s infinite; }
         .floating-img { animation: float 4s ease-in-out infinite; }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Custom Toggle Switch */
-        .toggle-checkbox:checked { right: 0; border-color: #22c55e; }
-        .toggle-checkbox:checked + .toggle-label { background-color: #22c55e; }
         
-        /* Radio Selection Styling */
+        /* Interactive Upsell Box Styles */
+        .upsell-glow { animation: border-glow-gold 2s infinite alternate; }
+        .upsell-green-gift { animation: border-glow-green 2s infinite alternate, gift-bounce 2.5s infinite ease-in-out; border-color: #22c55e !important; background: #f0fdf4 !important; }
+
+        .ta3ahod-alert { animation: alert-shake 0.5s ease-in-out; border-color: #ef4444 !important; background-color: #fef2f2 !important; }
+
+        /* Clean Form Input Custom Styling (Prevents tailwind apply breaks) */
+        .compact-input {
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #0a0a0a;
+            font-size: 0.875rem;
+            border-radius: 0.5rem;
+            padding: 0.625rem;
+            font-weight: 700;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .compact-input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Toggle Styling */
+        .toggle-checkbox:checked { right: 0; border-color: #D4AF37; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #D4AF37; }
+        
+        /* Custom Radio Selection */
         input[type="radio"]:checked + div { border-color: #D4AF37; background-color: #fffbeb; }
         input[type="radio"]:checked + div .check-icon { display: block; }
-        
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
 
         .notification { transition: all 0.5s ease; }
     </style>
@@ -222,48 +258,38 @@
                     
                     <form id="order-form" class="space-y-6">
                         
-                        <!-- 1. Contact Info -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                            <h3 class="font-bold text-xl mb-4 text-gray-800 flex items-center gap-2">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                                معلوماتك الشخصية
+                        <!-- 1. Contact Info (COMPACTED & STYLED) -->
+                        <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                            <h3 class="font-bold text-lg mb-3 text-gray-800 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                المعلومات الشخصية والتوصيل
                             </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <input type="text" name="name" required placeholder="الإسم واللقب الكامل *" class="w-full bg-white border-2 border-gray-200 text-darker text-lg rounded-xl focus:bg-white focus:border-gold focus:ring-4 focus:ring-gold/20 block p-4 transition outline-none font-semibold placeholder-gray-400">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                                <div class="md:col-span-2">
+                                    <input type="text" name="name" required placeholder="الإسم واللقب الكامل *" class="compact-input">
                                 </div>
                                 <div>
-                                    <input type="tel" name="phone1" required placeholder="رقم الهاتف الأساسي *" pattern="^(05|06|07)[0-9]{8}$" title="أدخل رقم هاتف جزائري صحيح" class="w-full bg-white border-2 border-gray-200 text-darker text-lg rounded-xl focus:bg-white focus:border-gold focus:ring-4 focus:ring-gold/20 block p-4 transition outline-none font-semibold placeholder-gray-400" dir="ltr" style="text-align: right;">
+                                    <input type="tel" name="phone1" required placeholder="رقم الهاتف الأساسي *" pattern="^(05|06|07)[0-9]{8}$" title="أدخل رقم هاتف جزائري صحيح يتكون من 10 أرقام" class="compact-input text-right" dir="ltr">
                                 </div>
                                 <div>
-                                    <input type="tel" name="phone2" placeholder="رقم هاتف إضافي (اختياري)" class="w-full bg-white border-2 border-gray-200 text-darker text-lg rounded-xl focus:bg-white focus:border-gold focus:ring-4 focus:ring-gold/20 block p-4 transition outline-none font-semibold placeholder-gray-400" dir="ltr" style="text-align: right;">
+                                    <input type="tel" name="phone2" placeholder="رقم هاتف إضافي (اختياري)" class="compact-input text-right" dir="ltr">
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- 2. Address Info -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                            <h3 class="font-bold text-xl mb-4 text-gray-800 flex items-center gap-2">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                عنوان التوصيل
-                            </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <select name="wilaya" id="wilaya-select" required class="w-full bg-white border-2 border-gray-200 text-darker text-lg rounded-xl focus:bg-white focus:border-gold focus:ring-4 focus:ring-gold/20 block p-4 transition outline-none font-semibold appearance-none">
+                                    <select name="wilaya" id="wilaya-select" required class="compact-input appearance-none">
                                         <option value="" disabled selected>اختر الولاية *</option>
                                         <option value="01-Adrar">01 - أدرار</option><option value="02-Chlef">02 - الشلف</option><option value="03-Laghouat">03 - الأغواط</option><option value="04-Oum El Bouaghi">04 - أم البواقي</option><option value="05-Batna">05 - باتنة</option><option value="06-Bejaia">06 - بجاية</option><option value="07-Biskra">07 - بسكرة</option><option value="08-Bechar">08 - بشار</option><option value="09-Blida">09 - البليدة</option><option value="10-Bouira">10 - البويرة</option><option value="11-Tamanrasset">11 - تمنراست</option><option value="12-Tebessa">12 - تبسة</option><option value="13-Tlemcen">13 - تلمسان</option><option value="14-Tiaret">14 - تيارت</option><option value="15-Tizi Ouzou">15 - تيزي وزو</option><option value="16-Alger">16 - الجزائر</option><option value="17-Djelfa">17 - الجلفة</option><option value="18-Jijel">18 - جيجل</option><option value="19-Setif">19 - سطيف</option><option value="20-Saida">20 - سعيدة</option><option value="21-Skikda">21 - سكيكدة</option><option value="22-Sidi Bel Abbes">22 - سيدي بلعباس</option><option value="23-Annaba">23 - عنابة</option><option value="24-Guelma">24 - قالمة</option><option value="25-Constantine">25 - قسنطينة</option><option value="26-Medea">26 - المدية</option><option value="27-Mostaganem">27 - مستغانم</option><option value="28-Msila">28 - المسيلة</option><option value="29-Mascara">29 - معسكر</option><option value="30-Ouargla">30 - ورقلة</option><option value="31-Oran">31 - وهران</option><option value="32-El Bayadh">32 - البيض</option><option value="33-Illizi">33 - إليزي</option><option value="34-Bordj Bou Arreridj">34 - برج بوعريريج</option><option value="35-Boumerdes">35 - بومرداس</option><option value="36-El Tarf">36 - الطارف</option><option value="37-Tindouf">37 - تندوف</option><option value="38-Tissemsilt">38 - تيسمسيلت</option><option value="39-El Oued">39 - الوادي</option><option value="40-Khenchela">40 - خنشلة</option><option value="41-Souk Ahras">41 - سوق أهراس</option><option value="42-Tipaza">42 - تيبازة</option><option value="43-Mila">43 - ميلة</option><option value="44-Ain Defla">44 - عين الدفلى</option><option value="45-Naama">45 - النعامة</option><option value="46-Ain Temouchent">46 - عين تموشنت</option><option value="47-Ghardaia">47 - غرداية</option><option value="48-Relizane">48 - غليزان</option><option value="49-Timimoun">49 - تيميمون</option><option value="50-Bordj Badji Mokhtar">50 - برج باجي مختار</option><option value="51-Ouled Djellal">51 - أولاد جلال</option><option value="52-Beni Abbes">52 - بني عباس</option><option value="53-In Salah">53 - عين صالح</option><option value="54-In Guezzam">54 - عين قزام</option><option value="55-Touggourt">55 - تقرت</option><option value="56-Djanet">56 - جانت</option><option value="57-El M'Ghair">57 - المغير</option><option value="58-El Meniaa">58 - المنيعة</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <input type="text" name="commune" required placeholder="البلدية *" class="w-full bg-white border-2 border-gray-200 text-darker text-lg rounded-xl focus:bg-white focus:border-gold focus:ring-4 focus:ring-gold/20 block p-4 transition outline-none font-semibold placeholder-gray-400">
+                                    <input type="text" name="commune" required placeholder="البلدية *" class="compact-input">
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 3. Offer Selection -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                            <h3 class="font-bold text-xl mb-4 text-gray-800 flex items-center gap-2">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                        <!-- 2. Offer Selection -->
+                        <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                            <h3 class="font-bold text-lg mb-3 text-gray-800 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
                                 اختر العرض المناسب لك
                             </h3>
                             <div class="space-y-3">
@@ -312,35 +338,35 @@
                             </div>
                         </div>
 
-                        <!-- 4. Advanced Upsell Switch -->
-                        <div id="upsell-container" class="bg-yellow-50 border-2 border-gold/50 p-5 rounded-2xl flex items-center justify-between transition-all duration-300">
+                        <!-- 3. Smart & Animated Upsell Switch -->
+                        <div id="upsell-container" class="border-2 p-5 rounded-2xl flex items-center justify-between transition-all duration-500 upsell-green-gift">
                             <div class="pr-2 w-3/4">
-                                <h4 class="font-black text-lg text-darker mb-1">إضافة علبة فاخرة (Luxury Box)</h4>
-                                <p class="text-sm text-gray-600 font-bold leading-tight" id="upsell-price-text">بـ <strong class="text-red-500 text-lg">600 دج</strong> فقط.. حمر وجهك في الكادو!</p>
+                                <h4 class="font-black text-lg text-darker mb-1" id="upsell-title">العلبة الفاخرة: هديـة مجانية! 🎁</h4>
+                                <p class="text-sm text-gray-600 font-bold leading-tight" id="upsell-price-text">رايحة تجيك باطل مع باك الكوبل</p>
                             </div>
                             
                             <!-- Toggle Switch CSS -->
-                            <div class="relative inline-block w-14 mr-2 align-middle select-none transition duration-200 ease-in">
-                                <input type="checkbox" name="toggle" id="upsell-toggle" class="toggle-checkbox absolute block w-7 h-7 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-300 z-10 top-0 left-0" checked/>
+                            <div class="relative inline-block w-14 mr-2 align-middle select-none transition duration-200 ease-in flex-shrink-0">
+                                <input type="checkbox" name="toggle" id="upsell-toggle" class="toggle-checkbox absolute block w-7 h-7 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-300 z-10 top-0 left-0" checked disabled/>
                                 <label for="upsell-toggle" class="toggle-label block overflow-hidden h-7 rounded-full bg-gray-300 cursor-pointer transition-colors duration-300"></label>
                             </div>
-                            <input type="hidden" id="upsell-value" value="600">
+                            <input type="hidden" id="upsell-value" value="0">
                         </div>
 
-                        <!-- 5. Optional Note -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                        <!-- 4. Optional Note -->
+                        <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                             <div>
-                                <textarea name="istifsar" rows="2" placeholder="عندك استفسار أو ملاحظة للتوصيل؟ (اختياري)" class="w-full bg-gray-50 border-2 border-gray-200 text-darker text-lg rounded-xl focus:bg-white focus:border-gold focus:ring-4 focus:ring-gold/20 block p-4 transition outline-none font-semibold placeholder-gray-400 resize-none"></textarea>
+                                <textarea name="istifsar" rows="1" placeholder="عندك استفسار أو ملاحظة للتوصيل؟ (اختياري)" class="compact-input resize-none"></textarea>
                             </div>
                         </div>
 
                         <!-- ORDER SUMMARY / RECEIPT -->
-                        <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 mb-8 shadow-sm mt-6">
-                            <h4 class="font-black text-xl text-darker mb-4 border-b-2 border-gray-200 pb-2 flex items-center gap-2">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-5 mb-6 shadow-sm">
+                            <h4 class="font-black text-lg text-darker mb-3 border-b-2 border-gray-200 pb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                                 فاتورة الطلب (الحساب التفصيلي):
                             </h4>
-                            <div class="space-y-4 text-base md:text-lg font-bold text-gray-700">
+                            <div class="space-y-3 text-sm md:text-base font-bold text-gray-700">
                                 <div class="flex justify-between items-center">
                                     <span id="summary-product-name">باك كوبل (أسود + ذهبي)</span>
                                     <span id="summary-product-price" class="text-darker">2900 دج</span>
@@ -353,22 +379,22 @@
                                     <span>ثمن التوصيل</span>
                                     <span id="summary-delivery-price" class="text-gray-400 text-sm bg-gray-200 px-2 rounded">اختر الولاية أولاً</span>
                                 </div>
-                                <div class="border-t-2 border-dashed border-gray-300 pt-4 mt-2 flex justify-between items-center font-black">
-                                    <span class="text-xl">المبلغ الإجمالي (لي تخلصو):</span>
-                                    <span id="summary-total-price" class="text-red-600 text-3xl drop-shadow-sm">-- دج</span>
+                                <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-2 flex justify-between items-center font-black">
+                                    <span class="text-base md:text-lg">المبلغ الإجمالي (لي تخلصو):</span>
+                                    <span id="summary-total-price" class="text-red-600 text-2xl drop-shadow-sm">-- دج</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- TA3AHOD (Pledge) -->
-                        <div class="bg-red-50 border-2 border-red-200 rounded-xl p-5 mb-8 flex gap-4 items-start hover:bg-red-100 transition duration-300">
-                            <input type="checkbox" id="ta3ahod" required class="w-6 h-6 mt-1 accent-red-600 cursor-pointer">
-                            <label for="ta3ahod" class="text-red-800 font-bold text-sm md:text-base cursor-pointer leading-relaxed">
+                        <div id="ta3ahod-box" class="bg-red-50 border-2 border-red-200 rounded-xl p-4 flex gap-3.5 items-start hover:bg-red-100 transition duration-300">
+                            <input type="checkbox" id="ta3ahod" required class="w-6 h-6 mt-0.5 accent-red-600 cursor-pointer flex-shrink-0">
+                            <label for="ta3ahod" class="text-red-800 font-bold text-xs md:text-sm cursor-pointer leading-relaxed">
                                 أتعهد أمام الله أنني جاد في طلبي، وسأقوم باستلام الطرد الخاص بي ودفع المبلغ المتفق عليه للمندوب. (لا تطلب إن لم تكن متأكداً).
                             </label>
                         </div>
 
-                        <button type="submit" id="submit-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-black text-2xl py-6 rounded-2xl shadow-[0_10px_0_0_#16a34a] hover:shadow-[0_5px_0_0_#16a34a] hover:translate-y-1 transition-all duration-200 btn-pulse flex justify-center items-center gap-3">
+                        <button type="submit" id="submit-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-black text-2xl py-5 rounded-2xl shadow-[0_10px_0_0_#16a34a] hover:shadow-[0_5px_0_0_#16a34a] hover:translate-y-1 transition-all duration-200 btn-pulse flex justify-center items-center gap-3">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                             تأكيد الطلب الآن!
                         </button>
@@ -378,6 +404,7 @@
         </section>
     </div>
 
+    <!-- THANK YOU VIEW -->
     <div id="thank-you-section" class="hidden min-h-screen flex items-center justify-center px-4 py-20 opacity-0 transition-opacity duration-1000 bg-white">
         <div class="max-w-xl mx-auto text-center">
             <div class="w-24 h-24 bg-green-500 text-white rounded-full flex items-center justify-center text-5xl font-bold mx-auto mb-6 shadow-xl animate-[popIn_0.8s_ease-out]">
@@ -397,7 +424,7 @@
         </div>
     </div>
 
-    <div id="fake-notif" class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white border-r-4 border-green-500 rounded-xl shadow-2xl p-4 flex items-center gap-3 z-50 transform translate-x-[-150%] notification">
+    <div id="fake-notif" class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white border-r-4 border-gold rounded-xl shadow-2xl p-4 flex items-center gap-3 z-50 transform translate-x-[-150%] notification">
         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center shrink-0 border border-gray-300 overflow-hidden">
             <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
         </div>
@@ -408,11 +435,15 @@
     </div>
 
     <script>
-        // Apply images from SETTINGS directly on load
+        // Apply images from SETTINGS directly on load safely
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('img-pic1').src = SETTINGS.PIC_1_MAIN;
-            document.getElementById('img-pic2').src = SETTINGS.PIC_2_MEN;
-            document.getElementById('img-pic3').src = SETTINGS.PIC_3_WOMEN;
+            const safeSetSrc = (id, src) => {
+                const el = document.getElementById(id);
+                if (el) el.src = src;
+            };
+            safeSetSrc('img-pic1', SETTINGS.PIC_1_MAIN);
+            safeSetSrc('img-pic2', SETTINGS.PIC_2_MEN);
+            safeSetSrc('img-pic3', SETTINGS.PIC_3_WOMEN);
         });
 
         // --- 1. Scroll Reveal Animation ---
@@ -435,8 +466,11 @@
         const upsellToggle = document.getElementById('upsell-toggle');
         const upsellValue = document.getElementById('upsell-value');
         const upsellPriceText = document.getElementById('upsell-price-text');
+        const upsellTitle = document.getElementById('upsell-title');
         const upsellContainer = document.getElementById('upsell-container');
         const wilayaSelect = document.getElementById('wilaya-select');
+        const ta3ahodBox = document.getElementById('ta3ahod-box');
+        const ta3ahodCheckbox = document.getElementById('ta3ahod');
 
         // Receipt Elements
         const summaryProductName = document.getElementById('summary-product-name');
@@ -450,9 +484,6 @@
         // Dynamic Delivery Cost Calculator based on Wilaya code
         function getDeliveryCost(wilaya) {
             if (!wilaya) return null;
-            // 16, 09, 35, 42 -> 600 DZD (Algiers & surroundings)
-            // Far South Wilayas -> 950 DZD
-            // Rest -> 800 DZD
             const algiersNearby = ["16", "09", "35", "42"];
             const southWilayas = ["01", "11", "30", "32", "33", "37", "39", "47", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58"];
             
@@ -474,15 +505,16 @@
 
             let extraPrice = 0;
             
-            // 2. Update Upsell Details
+            // 2. Update & Animate Upsell Details Dynamically (SMART SYSTEM)
             if (selectedOffer === 'Couple_Pack_Black_Gold') {
                 upsellToggle.checked = true;
                 upsellToggle.disabled = true;
                 upsellValue.value = "0";
                 
-                upsellPriceText.innerHTML = '<span class="text-green-600 font-black text-base bg-green-50 px-2 py-1 rounded shadow-sm">مهداة مجاناً (0 دج) مع باك الكوبل!</span>';
-                upsellContainer.classList.remove('border-gold/50');
-                upsellContainer.classList.add('border-green-400', 'bg-green-50/30');
+                // Add Gorgeous Festive Green Gift Style
+                upsellContainer.className = "border-2 p-5 rounded-2xl flex items-center justify-between transition-all duration-500 upsell-green-gift";
+                upsellTitle.innerText = "العلبة الفاخرة: هديـة مجانية! 🎁";
+                upsellPriceText.innerHTML = 'رايحة تجيك باطل مع باك الكوبل';
                 
                 summaryUpsellRow.style.display = 'flex';
                 summaryUpsellName.innerHTML = 'علبة فاخرة مهداة مجاناً 🎁';
@@ -492,9 +524,10 @@
                 extraPrice = upsellToggle.checked ? 600 : 0;
                 upsellValue.value = extraPrice.toString();
                 
+                // Add Attractive Premium Gold Glow border
+                upsellContainer.className = "border-2 p-5 rounded-2xl flex items-center justify-between transition-all duration-500 upsell-glow";
+                upsellTitle.innerText = "إضافة علبة فاخرة 🎁";
                 upsellPriceText.innerHTML = 'بـ <strong class="text-red-500 text-lg">600 دج</strong> فقط.. حمر وجهك في الكادو!';
-                upsellContainer.classList.add('border-gold/50');
-                upsellContainer.classList.remove('border-green-400', 'bg-green-50/30');
 
                 if (upsellToggle.checked) {
                     summaryUpsellRow.style.display = 'flex';
@@ -522,7 +555,6 @@
         // Listeners for summary updates
         offerRadios.forEach(radio => {
             radio.addEventListener('change', () => {
-                // Auto-uncheck upsell if switching from couple to single
                 const selectedOffer = document.querySelector('input[name="product"]:checked').value;
                 if (selectedOffer !== 'Couple_Pack_Black_Gold') upsellToggle.checked = false;
                 updateOrderSummary();
@@ -534,6 +566,11 @@
 
         // Initial compute
         updateOrderSummary();
+
+        // Remove shake alert once checked
+        ta3ahodCheckbox.addEventListener('change', () => {
+            if(ta3ahodCheckbox.checked) ta3ahodBox.classList.remove('ta3ahod-alert');
+        });
 
         // --- 3. Fake Order Notifications ---
         const notifNames = ["سارة من العاصمة", "أمين من وهران", "ليلى من تيزي وزو", "كريم من سطيف", "نسرين من البليدة", "محمد من عنابة"];
@@ -555,7 +592,7 @@
         }
         setInterval(triggerNotif, 12000); // Every 12 seconds
 
-        // --- 4. Form Submission & SPA Transition ---
+        // --- 4. Form Submission & SPA Transition (REBUILT FOR FIXED GOOGLE SHEET INTEGRATION) ---
         const form = document.getElementById('order-form');
         const mainLanding = document.getElementById('main-landing');
         const thankYouSection = document.getElementById('thank-you-section');
@@ -565,6 +602,13 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault(); 
             
+            if(!ta3ahodCheckbox.checked) {
+                ta3ahodBox.classList.remove('ta3ahod-alert');
+                void ta3ahodBox.offsetWidth; // force layout reflow
+                ta3ahodBox.classList.add('ta3ahod-alert');
+                return;
+            }
+
             // Calculate Value
             let basePrice = parseInt(document.querySelector('input[name="product"]:checked').dataset.price);
             let extraPrice = parseInt(upsellValue.value);
@@ -579,10 +623,11 @@
             submitBtn.classList.remove('btn-pulse');
             submitBtn.classList.add('opacity-75');
 
-            // --- Capture Data for WhatsApp ---
+            // --- Capture Data for WhatsApp & Sheet ---
             const clientName = form.name.value;
             const clientPhone1 = form.phone1.value;
             const clientPhone2 = form.phone2.value ? ` / ${form.phone2.value}` : '';
+            const clientPhone = clientPhone1 + clientPhone2;
             const clientCommune = form.commune.value;
             const clientIstifsar = form.istifsar.value ? `\nملاحظة: ${form.istifsar.value}` : '';
             
@@ -590,32 +635,48 @@
             const selectedOfferRadio = document.querySelector('input[name="product"]:checked');
             const offerTitle = selectedOfferRadio.parentElement.querySelector('.variant-title').innerText.replace(' 🔥', '');
             
-            let boxStatus = upsellToggle.checked ? "نعم (+600 دج)" : "لا (بدون علبة)";
+            let boxStatus = upsellToggle.checked ? "نعم" : "لا";
             if (selectedOfferRadio.value === 'Couple_Pack_Black_Gold') {
                 boxStatus = "نعم (علبة فاخرة مهداة مجاناً)";
             }
 
-            // Build WhatsApp Message
-            const waMessage = `السلام عليكم، حبيت نأكد الطلبية تاعي من الموقع:\n\n👤 الاسم: ${clientName}\n📱 الهاتف: ${clientPhone1}${clientPhone2}\n📍 الولاية: ${selectedWilaya} (بلدية: ${clientCommune})\n\n🛍️ الطلب: ${offerTitle}\n🎁 إضافة العلبة: ${boxStatus}\n🚚 التوصيل: ${deliveryCost} دج\n💵 المجموع الكلي: ${totalValue} دج${clientIstifsar}\n\nأكدولي الطلبية من فضلكم.`;
-            
-            const waEncoded = encodeURIComponent(waMessage);
-            
-            // Fetch dynamic WHATSAPP number from SETTINGS
-            const waNumber = SETTINGS.WHATSAPP_NUMBER;
-            
-            // Set WhatsApp Link
-            waLink.href = `https://wa.me/${waNumber}?text=${waEncoded}`;
+            let couleur = "Noir & Gold"; let sku = "RB-COUPLE";
+            if(selectedOfferRadio.value === '1_Piece_Full_Black') { couleur = "Full Black"; sku = "RB-BLACK"; }
+            else if(selectedOfferRadio.value === '1_Piece_Gold') { couleur = "Gold"; sku = "RB-GOLD"; }
 
-            // Trigger Pixels (Simulated)
+            // Trigger Pixels (Tested & Active)
             try {
                 if(typeof fbq !== 'undefined') fbq('track', 'Purchase', {currency: "DZD", value: totalValue});
                 if(typeof ttq !== 'undefined') ttq.track('CompletePayment', {content_name: 'Ray-Ban', value: totalValue, currency: 'DZD'});
             } catch(e) {}
 
-            // Send to Google Sheets (Placeholder logic)
-            // if(SETTINGS.GOOGLE_SHEET_URL && SETTINGS.GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_SHEET_APP_SCRIPT_URL_HERE') {
-            //     fetch(SETTINGS.GOOGLE_SHEET_URL, { method: 'POST', body: new FormData(form) });
-            // }
+            // Send to Google Sheets (REBUILT with URLSearchParams to prevent Apps Script plain-text bypass)
+            const params = new URLSearchParams();
+            params.append('Date', new Date().toLocaleString('fr-FR')); 
+            params.append('Nom', clientName);
+            params.append('Telephone', clientPhone);
+            params.append('Wilaya', selectedWilaya);
+            params.append('Commune', clientCommune);
+            params.append('Modele', offerTitle);
+            params.append('Couleur', couleur);
+            params.append('Boite', boxStatus);
+            params.append('SKU', sku);
+            params.append('Total', totalValue.toString() + " دج");
+
+            if(SETTINGS.GOOGLE_SHEET_URL && SETTINGS.GOOGLE_SHEET_URL.includes('script.google.com')) {
+                fetch(SETTINGS.GOOGLE_SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: params
+                }).catch(err => console.log('Sheet Error:', err));
+            }
+
+            // Build WhatsApp Message
+            const waMessage = `السلام عليكم، حبيت نأكد الطلبية تاعي من الموقع:\n\n👤 الاسم: ${clientName}\n📱 الهاتف: ${clientPhone}\n📍 الولاية: ${selectedWilaya} (بلدية: ${clientCommune})\n\n🛍️ الطلب: ${offerTitle}\n🎁 إضافة العلبة: ${boxStatus}\n🚚 التوصيل: ${deliveryCost} دج\n💵 المجموع الكلي: ${totalValue} دج${clientIstifsar}\n\nأكدولي الطلبية من فضلكم.`;
+            const waEncoded = encodeURIComponent(waMessage);
+            
+            // Set WhatsApp Link
+            waLink.href = `https://wa.me/${SETTINGS.WHATSAPP_NUMBER}?text=${waEncoded}`;
 
             // Simulate Network delay then transition to Thank You View
             setTimeout(() => {
